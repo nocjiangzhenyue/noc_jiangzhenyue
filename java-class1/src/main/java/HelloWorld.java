@@ -1,6 +1,6 @@
 /**
  * 功能描述：
- * 输出hello world
+ * 输出Hello World字符串
  *
  * @author jiangzhenyue
  * @version 0.1.0
