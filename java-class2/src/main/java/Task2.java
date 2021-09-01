@@ -13,6 +13,8 @@ public class Task2 {
  * @author jiangzhenyue
  * @date 2021年09月01日 15:42
  */
+    Task2(){}
+
     public static void main(String[] args) {
         /*
          * 功能描述：
