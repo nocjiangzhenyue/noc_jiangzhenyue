@@ -7,22 +7,16 @@
  * @date 2021年09月01日 15:42
  */
 public class Task2 {
-/**
- * 功能描述：
- * 2021/9/1第二次java作业
- * @author jiangzhenyue
- * @date 2021年09月01日 15:42
- */
     Task2(){}
 
+    /*
+     * 功能描述：
+     * 函数入口，测试四个函数是否正确
+     * @author jiangzhenyue
+     * @date 2021/9/1 15:43
+     * @param args
+    */
     public static void main(String[] args) {
-        /*
-         * 功能描述：
-         * 函数入口，测试四个函数是否正确
-         * @author jiangzhenyue
-         * @date 2021/9/1 15:43
-         * @param args
-        */
         {
             int[][] accounts = {{1,2},{3,4},{5,6},{12,3}};
             int maxNum = maxTotalAccount(accounts);
@@ -36,15 +30,15 @@ public class Task2 {
         }
     }
 
+    /*
+     * 功能描述：
+     * 返回最富有客户所拥有的资产总量
+     * @author jiangzhenyue
+     * @date 2021/9/1 15:40
+     * @param accounts
+     * @return int
+     */
     public static int maxTotalAccount(int[][] accounts){
-        /*
-         * 功能描述：
-         * 返回最富有客户所拥有的资产总量
-         * @author jiangzhenyue
-         * @date 2021/9/1 15:40
-         * @param accounts
-         * @return int
-         */
         int maxNum = 0;
         for(int[] userAccount:accounts){
             int userNum = 0;
@@ -56,15 +50,15 @@ public class Task2 {
         return maxNum;
     }
 
+    /*
+     * 功能描述：
+     * 通过临时变量交换两个数字，直接输出前后结果
+     * @author jiangzhenyue
+     * @date 2021/9/1 15:41
+     * @param num1
+     * @param num2
+     */
     public static void swap(int num1, int num2){
-        /*
-         * 功能描述：
-         * 通过临时变量交换两个数字，直接输出前后结果
-         * @author jiangzhenyue
-         * @date 2021/9/1 15:41
-         * @param num1
-         * @param num2
-         */
         System.out.printf("输入的两个数字：%d,%d%n",num1, num2);
         int tmp = num1;
         num1 = num2;
@@ -72,15 +66,15 @@ public class Task2 {
         System.out.printf("输出的两个数字：%d,%d%n",num1, num2);
     }
 
+    /*
+     * 功能描述：
+     * 通过异或操作交换两个数字，直接输出前后结果
+     * @author jiangzhenyue
+     * @date 2021/9/1 15:41
+     * @param num1
+     * @param num2
+     */
     public static void swapNoTmp(int num1, int num2){
-        /*
-         * 功能描述：
-         * 通过异或操作交换两个数字，直接输出前后结果
-         * @author jiangzhenyue
-         * @date 2021/9/1 15:41
-         * @param num1
-         * @param num2
-         */
         System.out.printf("输入的两个数字：%d,%d%n",num1, num2);
         num1 ^= num2;
         num2 ^= num1;
@@ -88,15 +82,15 @@ public class Task2 {
         System.out.printf("输出的两个数字：%d,%d%n",num1, num2);
     }
 
+    /*
+     * 功能描述：
+     * 判断字符串是否是回文字符串
+     * @author jiangzhenyue
+     * @date 2021/9/1 15:41
+     * @param str
+     * @return boolean
+     */
     public static boolean palindromeStringVerify(String str){
-        /*
-         * 功能描述：
-         * 判断字符串是否是回文字符串
-         * @author jiangzhenyue
-         * @date 2021/9/1 15:41
-         * @param str
-         * @return boolean
-         */
         String str2 = new StringBuffer(str).reverse().toString();
         return str2.equals(str);
     }
