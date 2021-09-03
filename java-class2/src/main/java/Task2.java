@@ -25,8 +25,8 @@ public class Task2 {
         {swap(1,22);}
         {swapNoTmp(1,23);}
         {
-            String str = " 123aa321 ";
-            System.out.println("是否回文字符串："+ palindromeStringVerify(str));
+            String str = " :,123Aa321 ";
+            System.out.println("是否回文字符串："+ isPalindrome(str));
         }
     }
 
@@ -90,8 +90,9 @@ public class Task2 {
      * @param str
      * @return boolean
      */
-    public static boolean palindromeStringVerify(String str){
-        String str2 = new StringBuffer(str).reverse().toString();
-        return str2.equals(str);
+    public static boolean isPalindrome(String s) {
+        s = s.toLowerCase().replaceAll("[^0-9a-zA-Z]","");
+        String s2 = new StringBuffer(s).reverse().toString() ;
+        return s2.equals(s);
     }
 }
