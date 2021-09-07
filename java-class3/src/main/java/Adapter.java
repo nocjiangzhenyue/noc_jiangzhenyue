@@ -1,6 +1,6 @@
 /**
  * 功能描述：
- * 适配器类，实现VGA和VGA的转换
+ * 适配器类，实现HDMI和VGA的转换
  *
  * @author jiangzhenyue
  * @version 0.1.0
