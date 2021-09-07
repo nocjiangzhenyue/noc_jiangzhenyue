@@ -7,7 +7,16 @@
  * @date 2021年08月30日 15:25
  **/
 class HelloWorld {
-    public static void main(String[] args) {
+    HelloWorld() {
+    }
+    static void main(String[] args) {
+        /*
+         * 功能描述：
+         * 
+         * @author jiangzhenyue
+         * @date 2021/9/1 10:15 
+         * @param args  
+        */
         System.out.println("Hello World!");
     }
 }
