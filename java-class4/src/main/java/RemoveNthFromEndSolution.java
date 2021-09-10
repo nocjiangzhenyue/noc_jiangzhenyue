@@ -30,6 +30,8 @@ public class RemoveNthFromEndSolution {
         ListNode<T> tmpHead = new ListNode(0,head);
         ListNode<T> slow = tmpHead;
         ListNode<T> fast = tmpHead;
+        // 如果n<=0，直接返回
+        if (n < 1) return tmpHead.next;
         while (n > 0){
             n --;
             fast = fast.next;
@@ -63,7 +65,7 @@ public class RemoveNthFromEndSolution {
         }
         head = tmp;
         // 2.将头节点作为参数调用removeNthFromEnd
-        head = removeNthFromEnd(head, 11);
+        head = removeNthFromEnd(head, 0);
         // 3.打印出节点中的每个值
         System.out.println("现链表：");
         while(head !=null){
