@@ -34,6 +34,8 @@ public class RemoveNthFromEndSolution {
             n --;
             fast = fast.next;
         }
+        // 如果n超过链表长度，直接返回
+        if (fast == null) return tmpHead.next;
         while (fast.next != null){
             slow = slow.next;
             fast = fast.next;
@@ -61,7 +63,7 @@ public class RemoveNthFromEndSolution {
         }
         head = tmp;
         // 2.将头节点作为参数调用removeNthFromEnd
-        head = removeNthFromEnd(head, 2);
+        head = removeNthFromEnd(head, 11);
         // 3.打印出节点中的每个值
         System.out.println("现链表：");
         while(head !=null){
