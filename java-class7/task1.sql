@@ -1,0 +1,1 @@
+select account,  sum(amount) as amount from `transaction`  GROUP BY account HAVING SUM(amount) > 10000;
