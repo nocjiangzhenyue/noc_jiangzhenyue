@@ -63,7 +63,10 @@ public class Order {
      */
     public static TreeSet<Order> toTreeSet(List<Order> orders) {
         // todo
-        TreeSet<Order> tree = new TreeSet<>(new Comparator<Order>(){
+        TreeSet<Order> tree = new TreeSet<>(Comparator.comparing(Order::isOpen,Comparator.reverseOrder())
+                .thenComparing(Order::getAmount,Comparator.reverseOrder())
+                .thenComparing(Order::getOrderTime)
+                .thenComparing(Order::getId))
             @Override
             public int compare(Order o1, Order o2){
                 // 排序规则描述如下
