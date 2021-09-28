@@ -37,7 +37,7 @@ public class UserServlet extends HttpServlet {
             // 姓名可以为空
             String age = request.getParameter("age");
             int ageInt;
-            // 年龄校验，age正确输入时，ageInt存在
+            // 年龄校验，age需要不为空且为整数
             try{
                 ageInt = Integer.parseInt(age);
             } catch (Exception e){
@@ -84,11 +84,10 @@ public class UserServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try{
             String name = request.getParameter("name");
-            // 姓名校验
-            name = name.equals("")?null:name;
+            // 姓名校验,不能为空
             String age = request.getParameter("age");
             int ageInt;
-            // 年龄校验，age正确输入时，ageInt存在
+            // 年龄校验，age需要不为空且为整数
             try{
                 ageInt = Integer.parseInt(age);
             } catch (Exception e){
@@ -96,7 +95,7 @@ public class UserServlet extends HttpServlet {
                 ageInt = 0;
             }
             // 参数校验,需要两个参数都存在
-            if (name == null || age == null) {
+            if (name == null || name.equals("") || age == null) {
                 out.println("参数错误 ");
                 return;
             }
