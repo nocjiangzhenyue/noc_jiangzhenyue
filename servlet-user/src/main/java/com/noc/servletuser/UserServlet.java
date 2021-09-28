@@ -34,7 +34,16 @@ public class UserServlet extends HttpServlet {
         Bson filter;
         try {
             String name = request.getParameter("name");
+            // 姓名可以为空
             String age = request.getParameter("age");
+            int ageInt;
+            // 年龄校验，age正确输入时，ageInt存在
+            try{
+                ageInt = Integer.parseInt(age);
+            } catch (Exception e){
+                age = null;
+                ageInt = 0;
+            }
             // 参数校验
             if (name == null && age == null) {
                 out.println("没有参数 ");
@@ -42,11 +51,11 @@ public class UserServlet extends HttpServlet {
             }
             // 过滤器选择
             if (name != null && age != null) {
-                filter = Filters.and(Filters.eq("age", Integer.parseInt(age)), Filters.regex("name", name));//转int
+                filter = Filters.and(Filters.eq("age", ageInt), Filters.regex("name", name));
             } else if (name != null) {
                 filter = Filters.regex("name", name);
             } else {
-                filter = Filters.eq("age", Integer.parseInt(age));
+                filter = Filters.eq("age", ageInt);
             }
             FindIterable<Document> documentList = collection.find(filter);
             out.println("查询成功");
@@ -75,9 +84,24 @@ public class UserServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try{
             String name = request.getParameter("name");
-            Integer age = Integer.parseInt(request.getParameter("age"));
+            // 姓名校验
+            name = name.equals("")?null:name;
+            String age = request.getParameter("age");
+            int ageInt;
+            // 年龄校验，age正确输入时，ageInt存在
+            try{
+                ageInt = Integer.parseInt(age);
+            } catch (Exception e){
+                age = null;
+                ageInt = 0;
+            }
+            // 参数校验,需要两个参数都存在
+            if (name == null || age == null) {
+                out.println("参数错误 ");
+                return;
+            }
             // 新增文档
-            collection.insertOne(new Document("name", name).append("age", age));
+            collection.insertOne(new Document("name", name).append("age", ageInt));
             out.println("新增成功");
         } catch (Exception e) {
             out.println("新增失败");
