@@ -11,15 +11,22 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.springframework.stereotype.Service;
 
-//事务 transaction
+
 @Service
 public class UserServiceImpl implements UserService{
     MongoCollection<Document> collection = MongoClients.create(URL).getDatabase("test").getCollection("user");
 
+    /*
+     * 功能描述：
+     * 数据库插入，返回成功/失败
+     * @author jiangzhenyue
+     * @date 2021/9/30 12:11
+     * @param user
+     * @return boolean
+    */
     @Override
     public boolean addUser(User user) {
         // 开启事务
-        // 1, 2, 3操作
         try {
             String name =  user.getName();
             int age = user.getAge();
@@ -32,6 +39,15 @@ public class UserServiceImpl implements UserService{
         }
     }
 
+    /*
+     * 功能描述：
+     * 查询操作，返回特定格式结果
+     * @author jiangzhenyue
+     * @date 2021/9/30 12:11
+     * @param name
+     * @param age
+     * @return String
+    */
     @Override
     public String getUser(String name, String age) {
         StringBuilder answer = new StringBuilder();

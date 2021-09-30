@@ -17,6 +17,14 @@ public class UserController {
         return userService.getUser(name,age);
     }
 
+    /*
+     * 功能描述：
+     * 传入对象进行数据库插入
+     * @author jiangzhenyue
+     * @date 2021/9/30 12:08
+     * @param user
+     * @return String
+    */
     @PostMapping("/addUser")
     @ResponseBody
     public String addUser(@RequestBody User user){
